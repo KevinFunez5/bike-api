@@ -12,8 +12,8 @@ export default class BikeService {
     }) 
   }
 
-  static getManufacturerTrek() {
-    return fetch('https://bikeindex.org/api/v3/search?page=1&per_page=20&manufacturer=Trek&location=97211&distance=10&stolenness=stolen')
+  static getManufacturerTrek(manufacturer) {
+    return fetch(`https://bikeindex.org/api/v3/search?page=1&per_page=20&manufacturer=${manufacturer}&location=97211&distance=10&stolenness=stolen`)
     .then(function(response){
       if(!response.ok) {
         throw Error(response.statusText);
@@ -25,3 +25,4 @@ export default class BikeService {
     })
   }
 }
+
